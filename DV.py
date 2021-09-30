@@ -9,8 +9,15 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import tkinter
 import seaborn as sns
+import folium
+#from bokeh.plotting import figure, output_file, save
 
+#I AM SKIPPING BOKEH BECAUSE THE MODULE CANT BE FOUND
 
+#Bokeh output file
+output_file('data_science_popularity.html') 
+
+#Set dimensions of displaying the data
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
@@ -40,6 +47,20 @@ f.write(df.head().style.format(format_dict).bar(color='red', subset=['data scien
 f.close()
 
 #_______________________________________________________________
+                    #How to use Folium
+#_______________________________________________________________
+
+m1 = folium.Map(location=[41.38, 2.17], tiles='openstreetmap', zoom_start=18)
+m1.save('map1.html')
+
+
+
+
+
+
+
+
+#_______________________________________________________________
                     #How to use Seaborn
 #_______________________________________________________________
 
@@ -52,11 +73,11 @@ sns.set()
 #sns.jointplot(x='data science', y='machine learning', data=df)
 #sns.catplot(x='categorical', y='data science', kind='violin', data=df)
 
-fig, axes = plt.subplots(1, 2, sharey=True, figsize=(8, 4))
-sns.scatterplot(x="Mes", y="deep learning", hue="categorical", data=df, ax=axes[0])
-axes[0].set_title('Deep Learning')
-sns.scatterplot(x="Mes", y="machine learning", hue="categorical", data=df, ax=axes[1])
-axes[1].set_title('Machine Learning')
+#fig, axes = plt.subplots(1, 2, sharey=True, figsize=(8, 4))
+#sns.scatterplot(x="Mes", y="deep learning", hue="categorical", data=df, ax=axes[0])
+#axes[0].set_title('Deep Learning')
+#sns.scatterplot(x="Mes", y="machine learning", hue="categorical", data=df, ax=axes[1])
+#axes[1].set_title('Machine Learning')
 
 plt.show()
 
